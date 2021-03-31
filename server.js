@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser')
 const compress = require('compression')
 const cors = require('cors')
 const helmet = require('helmet')
-// const user = require('./routes/user.routes')
+const user = require('./routes/user.routes')
 require('dotenv').config()
 
 const app = express()
@@ -35,6 +35,7 @@ app.use(compress())
 app.use(cors())
 app.use(helmet())
 
+app.use('/', user)
 app.listen(PORT, (err) => {
   if (err) {
     console.log(err)
